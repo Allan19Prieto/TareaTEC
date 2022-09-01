@@ -7,13 +7,12 @@ class pagedArray {
 
     public:
     pagedArray();
-    //int &operator[] (int index);
     int cambio();
     int &operator[] (int index);
-    int check_Page (int PageID);
-    int page_loader (int page_num);
+    int revisar (int PageID);
+    int cargar (int page_num);
     int check_freeSlot ();
+    void guardar ();
     memoryController paginaArray [6]; 
-    void saveAll ();
 };
 #endif 

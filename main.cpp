@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     int tamano_archivo = 0;
     int cont=0;
     ifstream file_llenar;
-    
+    pagedArray pArray;
 
     //validamos el parametro QS/IS/SS
     if (parametro_sort!="QS" and parametro_sort!="IS" and parametro_sort!="SS") {
@@ -38,8 +38,6 @@ int main(int argc, char *argv[]) {
         cout << " Recuerda qeu solo puede ser: QS, IS, SS...\n";
         return 1;
     }
-    
-    pagedArray pArray;
 
     //Validamos  el nombre del archivo
     file_leer.open(archivo_leer);
@@ -76,9 +74,11 @@ int main(int argc, char *argv[]) {
         funtion::selectionSort(&pArray, tamano_archivo);
     }
 
-    pArray.saveAll();
+    //Guardamos lo que tenemos en el archivo binario
+    pArray.guardar();
+
     //Pasamos a texto y guardamos con el nombre que indicamos
-    funtion::binario_a_texto(&pArray, tamano_archivo, archivo_ordenado);
+    funtion::BT(&pArray, tamano_archivo, archivo_ordenado);
 
     //Eliminamos el archivo almacenado en memoria
     remove("Convertido.dat");

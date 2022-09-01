@@ -49,7 +49,7 @@ void funtion::selectionSort(pagedArray *arr, int n) {
     }
 }
 
-void funtion::binario_a_texto(pagedArray *pArray, int tamano_archivo, string newfilename) {
+void funtion::BT(pagedArray *pArray, int tamano_archivo, string newfilename) {
     string filedirection = newfilename;
     ofstream newFile;
     newFile.open(filedirection);
@@ -75,13 +75,17 @@ void funtion::fileGnerator(int arr[], int tamano_archivo)
     int valor=tamano_archivo;
 
     FILE *archivo;
-    archivo = fopen("Convertido.dat", "w+b");
+    archivo = fopen("Convertido.dat", "wb");
     if (archivo) {
+
+        //Pasamos a vinario, y escribimos con el fwrite, le pasamos el tamaño necesario
         fseek(archivo,0,SEEK_SET);
         fwrite(arr, sizeof(int), tamano_archivo  , archivo);
+
     }
     else {
-        cout << "El archivo NO se creo" << endl;
+
+        cout << "No fue posible crear el archivo" << endl;
     }
     fclose(archivo);
 

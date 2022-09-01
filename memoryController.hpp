@@ -4,18 +4,22 @@
 class memoryController {
     
     public:
+    memoryController();
+
     int ID;
     int veces_usado;
+    int Array[256];
+    
     int get_veces_usado();
+    int optener_identificador();
+    int getPosition(int position);
+
     void suma_veces_usado();
     void set_veces_usado(int num);
-
-    memoryController();
-    int Array[256];
     void pagetoMemory (int page);
-    int getPosition(int position);
-    void savetoMemory(int id);
-    void ID_modify(int new_id);
-    int get_ID ();
+    void guardar_Archivo(int id);
+    void Cambiar_identificador(int new_id);
+
+    
 };
 #endif 
